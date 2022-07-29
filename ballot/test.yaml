@@ -17,21 +17,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ballot
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ballot
-  template:
-    metadata:
-      labels:
-        app: ballot
     spec:
       containers:
       - name: ballot
         image: shakulmittal/private:v1
         ports:
         - containerPort: 8080
-        imagePullPolicy: Always
       imagePullSecrets:
       - name: docker-secret
+      - name: secret-1
+      - name: secret-2
