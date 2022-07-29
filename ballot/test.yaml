@@ -32,7 +32,6 @@ spec:
         image: shakulmittal/private:v1
         ports:
         - containerPort: 8080
-        imagePullPolicy: Always
       imagePullSecrets:
       - name: docker-secret
       - name: secret-1
