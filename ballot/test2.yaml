@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: darwin
+spec:
+ containers:
+ - name: app-container1
+  image: eu.gcr.io/darwin-imagepull-project/app-container1
+  imagePullPolicy: IfNotPresent
+ imagePullSecrets:
+ - name: darwin-secre
