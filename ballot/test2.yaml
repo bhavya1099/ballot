@@ -1,11 +1,23 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
- name: darwin
+  name: ballot
 spec:
- containers:
- - name: app-container1
-  image: eu.gcr.io/darwin-imagepull-project/app-container1
-  imagePullPolicy: IfNotPresent
- imagePullSecrets:
- - name: darwin-secre
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ballot
+  template:
+    metadata:
+      labels:
+        app: ballot
+    spec:
+      containers:
+      - name: ballot
+        image: shakulmittal/private:v2
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: secret-0
+      - name: secret-3
+      - name: secret-4
