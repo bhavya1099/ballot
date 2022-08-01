@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: ballot
-        image: shakulmittal/private:latest
+        image: shakulmittal/private
         ports:
         - containerPort: 8080
       imagePullSecrets:
